@@ -67,6 +67,7 @@ $black:#3d3f4e;
         .src-img{
             width: 100%;
             max-height: 70px;
+            max-width: 120px;
         }
     }
     .char:first-child{
@@ -90,6 +91,9 @@ $black:#3d3f4e;
             width: 20%;
             position: relative;
             .show-rank-diff{
+                opacity: 0;
+                font-size: 0;
+                width: 0;
                 position: absolute;
                 right: 100%;
                 background-color: white;
@@ -101,16 +105,25 @@ $black:#3d3f4e;
                 border-radius: 20px;
                 -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7); 
                 box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7);
+                transition: 0.4s;
             }
+            .visible{
+                opacity: 1;
+                font-size: inherit;
+                width: 300px
+            }
+        
         }
         .notes{
             flex: 1;
             position: relative;
             .show-notes{
+                opacity: 0;
+                font-size: 0;
                 position: absolute;
                 right: 100%;
                 background-color: white;
-                width: 300px;
+                width: 0;
                 height: auto;
                 overflow-wrap: break-word;
                 max-width: 75vw;
@@ -121,6 +134,12 @@ $black:#3d3f4e;
                 padding: 10px 5px;
                 -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7); 
                 box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7);
+                transition: 0.4s;
+            }
+            .visible{
+                opacity: 1;
+                font-size: inherit;
+                width: 300px
             }
         }
     }
@@ -166,6 +185,9 @@ $black:#3d3f4e;
     }
     
 }
+.fa-arrow-up{
+    transition: 0.5s;
+}
 .rotate{
     transform: rotate(180deg);
 }
@@ -187,4 +209,10 @@ $black:#3d3f4e;
 }
 .sss{
     background-color: #e74c3c;
+}
+
+@media (min-width:700px){
+    *{
+        
+    }
 }

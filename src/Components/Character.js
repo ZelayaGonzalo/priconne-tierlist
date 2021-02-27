@@ -97,8 +97,8 @@ function Character(props){
                     <img src={getStar(props.info.stars)} className="base-star char"/>
                     <span className="position char">{props.info.position}</span>
                     <span className="cb-rank char">{props.info.cbRank}</span>
-                    <span className="rank-dif char" onClick={showRankDiff}>Touch {diffShown && (<div className="show-rank-diff">{props.info.rankDiff.map(data=><p>{data}</p>)}</div>)}</span>
-                    <span className="notes char" onClick={showNotes}>Touch{notesShown && (<div className="show-notes">{props.info.comment}</div>)}</span>
+                    <span className="rank-dif char" onClick={showRankDiff}>Touch {!diffShown ? (<div className="show-rank-diff">...</div>) : (<div className="show-rank-diff visible">{props.info.rankDiff.map(data=><p>{data}</p>)}</div>)} </span>
+                    <span className="notes char" onClick={showNotes}>Touch{!notesShown ? (<div className="show-notes">{props.info.comment}</div>) : (<div className="show-notes visible">{props.info.comment}</div>) }</span>
                 </div>
             </div>
         </div>

@@ -11,6 +11,3 @@ function App() {
 }
 
 export default App;
-
-
-//credits <a href='https://pngtree.com/so/star-clipart'>star clipart png from pngtree.com</a>

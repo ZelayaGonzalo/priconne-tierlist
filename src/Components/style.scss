@@ -1,0 +1,190 @@
+//background
+$blue :#5f96f3;
+$borderGray:#8e8ead;
+//Font
+$darkBlue:#1e5483;
+$softBlue:#6471a2;
+$black:#3d3f4e;
+
+
+.table-container{
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    .list-container{
+        padding-top: 40px;
+    }
+    .fixed{
+        position: fixed;
+        background-color: $blue;
+        color: $black;
+        -webkit-box-shadow: 0px 3px 5px 3px #3D3F4E; 
+        box-shadow: 0px 3px 5px 3px #3D3F4E;
+    }
+    .row{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $borderGray;
+        .head{
+            text-align: center;
+            border-right: 1px solid $borderGray;
+        }
+        .head:last-child{
+            border-right: none;
+        }
+        .icon{
+            width: 70px;
+            max-width: 100px;
+        }
+        .name{
+            width: 30%;
+        }
+        .tier{
+            width: 12%;
+        }
+        .source{
+            flex: 1;
+        }
+    }
+    .char-row{
+        height: auto;
+        .icon{
+            height: auto;
+            width: 70px;
+            max-width: 100px;
+        }
+    }
+    .char{
+        color: $darkBlue;
+        text-align: center;
+        border-right: 1px solid $borderGray;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .src-img{
+            width: 100%;
+            max-height: 70px;
+        }
+    }
+    .char:first-child{
+        border-right: none;
+    }
+    .char:last-child{
+        border-right: none;
+    }
+    .hidden-row{
+        .base-star{
+            width: 70px;
+            border-right: 1px solid black;
+        }
+        .position{
+            width: 20%;
+        }
+        .cb-rank{
+            width: 20%;
+        }
+        .rank-dif{
+            width: 20%;
+            position: relative;
+            .show-rank-diff{
+                position: absolute;
+                right: 100%;
+                background-color: white;
+                width: 300px;
+                max-width: 50vw;
+                height: auto;
+                overflow-wrap: break-word;
+                padding: 10px 5px;
+                border-radius: 20px;
+                -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7); 
+                box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7);
+            }
+        }
+        .notes{
+            flex: 1;
+            position: relative;
+            .show-notes{
+                position: absolute;
+                right: 100%;
+                background-color: white;
+                width: 300px;
+                height: auto;
+                overflow-wrap: break-word;
+                max-width: 75vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 20px;
+                padding: 10px 5px;
+                -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7); 
+                box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7);
+            }
+        }
+    }
+    .hidden-char{
+        height: 70px;
+    }
+    .hidden-head{
+        background-color: $blue;
+        -webkit-box-shadow: 0px 3px 5px 3px #3D3F4E; 
+        box-shadow: 0px 3px 5px 3px #3D3F4E;
+    }
+}
+
+.hidden{
+    transition: 0.5s;
+    opacity: 0;
+    .row{
+        font-size: 0;
+        height: 0px;
+        transition: 0.5s;
+    }
+    .hidden-char{
+        height: 0px;
+        transition: 0.5s;
+        .char{
+            height: 0;
+        }
+    }
+}
+.show{
+    opacity: 1;
+    .row{
+        font-size: inherit;
+        height: 40px;
+        transition: 0.5s;
+    }
+    .hidden-char{
+        height: 70px;
+        transition: 0.5s;
+        .char{
+            height: 70px;
+        }
+    }
+    
+}
+.rotate{
+    transform: rotate(180deg);
+}
+
+.c{
+    background-color: #95a5a6;
+}
+.b{
+    background-color:#ecf0f1;
+}
+.a{
+    background-color: #3498db;
+}
+.s{
+    background-color: #2ecc71;
+}
+.ss{
+    background-color: #f39c12;
+}
+.sss{
+    background-color: #e74c3c;
+}

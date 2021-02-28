@@ -104,7 +104,7 @@ function Character(props){
                     <img src={getStar(props.info.stars)} alt={props.info.stars} className="base-star char"/>
                     <span className="position char">{props.info.position}</span>
                     <span className="cb-rank char">{props.info.cbRank}</span>
-                    <span className="rank-dif char" onClick={showRankDiff}>Touch {!diffShown ? (<div className="show-rank-diff">...</div>) : (<div className="show-rank-diff visible">{props.info.rankDiff.map(data=><p className={data.includes("+") ? "positive":"negative"}>{data}</p>)}</div>)} </span>
+                    <span className="rank-dif char" onClick={showRankDiff}>Touch {!diffShown ? (<div className="show-rank-diff">...</div>) : (<div className="show-rank-diff visible">{props.info.rankDiff.map(data=><p key={data} className={data.includes("+") ? "positive":"negative"}>{data}</p>)}</div>)} </span>
                     <span className="notes char" onClick={showNotes}>Touch{!notesShown ? (<div className="show-notes">{props.info.comment}</div>) : (<div className="show-notes visible">{props.info.comment}</div>) }</span>
                 </div>
             </div>
@@ -120,7 +120,7 @@ function Character(props){
                     {getTier(props.info.pve)}
                     {getTier(props.info.cb)}
                     {getTier(props.info.pvp)}
-                    <span className="cbRank char char-desktop">{props.info.cbRank} <div className="show-rank-diff visible">{props.info.rankDiff.map(data=> <p className={data.includes("+") ? "positive":"negative"}>{data}</p>)}</div></span>
+                    <span className="cbRank char char-desktop">{props.info.cbRank} <div className="show-rank-diff visible">{props.info.rankDiff.map(data=> <p key={data} className={data.includes("+") ? "positive":"negative"}>{data}</p>)}</div></span>
                     <span className="comment char char-desktop"><p>{props.info.comment}</p></span>
                     <span className="source char char-desktop"> <img src={getIcon(props.info.source)} alt="-" className="src-img"/></span>
                 </div>

@@ -278,8 +278,8 @@ function Table(){
     return(
         <div className={isBrowser ? "table-container table-desktop":"table-container"}>
             <MobileView viewClassName="row head fixed">
-                <span className="icon head action" onClick={showSideBar}><i class="fas fa-info-circle"></i></span>
-                <span className="name head action" onClick={sortByName}>Name {ascending ?<i class="fas fa-arrow-up" ></i> :<i class="fas fa-arrow-up rotate" ></i>  }</span>
+                <span className="icon head action" onClick={showSideBar}><i className="fas fa-info-circle"></i></span>
+                <span className="name head action" onClick={sortByName}>Name {ascending ?<i className="fas fa-arrow-up" ></i> :<i className="fas fa-arrow-up rotate" ></i>  }</span>
                 <span className="tier head action" onClick={sortPve}>PVE</span>
                 <span className="tier head action" onClick={sortCb}>CB</span>
                 <span className="tier head action" onClick={sortPvp}>PVP</span>
@@ -378,9 +378,9 @@ function Table(){
                 </span>
             </MobileView>
             <BrowserView viewClassName="row head fixed row-desktop fixed-desktop">
-                <span className="icon head action" onClick={showSideBar}><i class="fas fa-info-circle"></i></span>
-                <span className="stars head action" onClick={sortStars}>Stars {ascendingStars ?<i class="fas fa-arrow-up" ></i> :<i class="fas fa-arrow-up rotate" ></i>  } </span>
-                <span className="name head action" onClick={sortByName}>Name {ascending ?<i class="fas fa-arrow-up" ></i> :<i class="fas fa-arrow-up rotate" ></i>  }</span>
+                <span className="icon head action" onClick={showSideBar}><i className="fas fa-info-circle"></i></span>
+                <span className="stars head action" onClick={sortStars}>Stars {ascendingStars ?<i className="fas fa-arrow-up" ></i> :<i className="fas fa-arrow-up rotate" ></i>  } </span>
+                <span className="name head action" onClick={sortByName}>Name {ascending ?<i className="fas fa-arrow-up" ></i> :<i className="fas fa-arrow-up rotate" ></i>  }</span>
                 <span className="tier head action" onClick={sortPve}>PVE</span>
                 <span className="tier head action" onClick={sortCb}>CB</span>
                 <span className="tier head action" onClick={sortPvp}>PVP</span>

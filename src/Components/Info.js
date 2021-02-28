@@ -1,10 +1,10 @@
 function Info(){
     return(
         <div className="side-bar">
-        <section>
+        <section className="credits-section">
         <h2>Princess Connect Tierlist</h2>
         <p>Hello and welcome to this tierlist.</p>
-        <p>This list was made by TimaeuSS and you can find the original <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlbwfpi-KflPB6aA-LE1a50xiLvWsNRU1vcusLIWwnPLzgE2iXw9Or8JXQdezN-s1rakU074hFK1Nh/pubhtml#">here</a></p>
+        <p>This list was made by TimaeuSS and you can find the original <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlbwfpi-KflPB6aA-LE1a50xiLvWsNRU1vcusLIWwnPLzgE2iXw9Or8JXQdezN-s1rakU074hFK1Nh/pubhtml#">here</a>. I made this app for ease of navigation</p>
         </section>
         <section className="credits-section">
           <h3>Instructions:</h3>
@@ -26,7 +26,8 @@ function Info(){
         <footer>
             <p>if you have any troubles feel free to contact me:</p>
             <p>Email: <a href="zelayagonzalo33@gmail.com">zelayagonzalo33@gmail.com</a></p>
-            <p>Discord: 0PT1C0#3072</p>
+            <p>Discord: 0PT1C0#3072 </p>
+            <p>If anyone from G.Edifice is here, greetings from 0PT1C0</p>
         </footer>
       </div>
     )

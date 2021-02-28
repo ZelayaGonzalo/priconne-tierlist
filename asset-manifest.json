@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/priconne-tierlist/static/css/main.5e5b790b.chunk.css",
-    "main.js": "/priconne-tierlist/static/js/main.c32a3c99.chunk.js",
-    "main.js.map": "/priconne-tierlist/static/js/main.c32a3c99.chunk.js.map",
+    "main.css": "/priconne-tierlist/static/css/main.f9174be8.chunk.css",
+    "main.js": "/priconne-tierlist/static/js/main.1de16a06.chunk.js",
+    "main.js.map": "/priconne-tierlist/static/js/main.1de16a06.chunk.js.map",
     "runtime-main.js": "/priconne-tierlist/static/js/runtime-main.3897e61e.js",
     "runtime-main.js.map": "/priconne-tierlist/static/js/runtime-main.3897e61e.js.map",
-    "static/js/2.a987ffca.chunk.js": "/priconne-tierlist/static/js/2.a987ffca.chunk.js",
-    "static/js/2.a987ffca.chunk.js.map": "/priconne-tierlist/static/js/2.a987ffca.chunk.js.map",
+    "static/js/2.5dfdc329.chunk.js": "/priconne-tierlist/static/js/2.5dfdc329.chunk.js",
+    "static/js/2.5dfdc329.chunk.js.map": "/priconne-tierlist/static/js/2.5dfdc329.chunk.js.map",
     "index.html": "/priconne-tierlist/index.html",
-    "static/css/main.5e5b790b.chunk.css.map": "/priconne-tierlist/static/css/main.5e5b790b.chunk.css.map",
-    "static/js/2.a987ffca.chunk.js.LICENSE.txt": "/priconne-tierlist/static/js/2.a987ffca.chunk.js.LICENSE.txt",
-    "static/media/3stars.d12ac066.png": "/priconne-tierlist/static/media/3stars.d12ac066.png"
+    "static/css/main.f9174be8.chunk.css.map": "/priconne-tierlist/static/css/main.f9174be8.chunk.css.map",
+    "static/js/2.5dfdc329.chunk.js.LICENSE.txt": "/priconne-tierlist/static/js/2.5dfdc329.chunk.js.LICENSE.txt",
+    "static/media/style.css": "/priconne-tierlist/static/media/stamp.acf66efc.png"
   },
   "entrypoints": [
     "static/js/runtime-main.3897e61e.js",
-    "static/js/2.a987ffca.chunk.js",
-    "static/css/main.5e5b790b.chunk.css",
-    "static/js/main.c32a3c99.chunk.js"
+    "static/js/2.5dfdc329.chunk.js",
+    "static/css/main.f9174be8.chunk.css",
+    "static/js/main.1de16a06.chunk.js"
   ]
 }

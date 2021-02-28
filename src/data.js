@@ -28,7 +28,7 @@ const data =[
         cbRank:"R8-3",
         rankDiff: ["-315 HP","-15 TP Regen","+35 Physical Attack","+3 Physical Defense ","+4 Magic Defense","+8 HP Drain"],
         comment: "Great PvP unit to be used in combo teams like Rino cannon / Ninon fan. Clumps the enemies together in arena due to late entry to allow AoEs to land on more targets",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Kuka",
@@ -65,7 +65,7 @@ const data =[
             '+79 Physical Attack',
             '+15 TP Regen'],
         comment: "Currently one of the best mix tanks. Her kit is awesome: she can def shred, heal and MDEF up for EX. UB has dmg absorb. Clan Battle tank of choice due to def shred. Shines in PvP as the premier tank as well.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Kaori",
@@ -103,7 +103,7 @@ const data =[
             '+100 Physical Attack',
             '+15 TP Regen'],
         comment: "Free tank. Use her if you don't have other options. Starts to shine at UE (unique equip) release.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Nozomi",
@@ -156,7 +156,7 @@ const data =[
         '+15 TP Regen',
         '+8 HP Drain'],
         comment: "Decent early game. Falls off fast.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Hiyori",
@@ -197,7 +197,7 @@ const data =[
             '+12 Dodge',
             '+12 TP Boost'],
         comment: "Real bad.",
-        source: "hard-shard",
+        source: "arena",
     },
     {
         name: "Tamaki",
@@ -233,7 +233,7 @@ const data =[
             '-235 HP Regen',
             '+113 Physical Attack'],
         comment: "Might see some play early if 3 star+ for clan battle. Quiet until UE.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Kurumi",
@@ -249,7 +249,7 @@ const data =[
             '+730 HP',
             '+22 Physical Attack'],
         comment: "Some reddit troll said she's top tier and people fell for it... Will be part of stall teams after UE.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Djeeta",
@@ -266,7 +266,7 @@ const data =[
             '+94 Physical Attack',
             '+15 TP Regen'],
         comment: "Useful in the first few CBs but replaced soon unless 4-5 star from amulets.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Rei",
@@ -283,7 +283,7 @@ const data =[
         '+15 TP Regen',
         '+5 HP Drain'],
         comment: "UE Rei and 6 Star Rei is top meta stuff but until then... benched.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Shizuru",
@@ -302,7 +302,7 @@ const data =[
         '+15 TP Regen',
         '+8 HP Drain'],
         comment: "Her position sucks. Can be used against tamaki / rino / ninon comps in arena. Not bad as sub tank in pos 3 for story. Otherwise, replaced soon.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Mimi",
@@ -320,7 +320,7 @@ const data =[
             '+59 Physical Attack',
             '+3 Physical Defense'],
         comment: "Really average at everything for now. Might see play in 3rd team in early CB if high star",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Shinobu",
@@ -338,7 +338,7 @@ const data =[
         '+6 HP Drain',
         '+10 TP Boost'],
         comment: "Provides some defense shred and also skull daddy to tank some unique mechanics in CB. Needs 3 star ",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Mahiru",
@@ -355,7 +355,7 @@ const data =[
             '+213 HP',
             '+117 Physical Attack'],
         comment: "Real bad.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Yukari",
@@ -410,7 +410,7 @@ const data =[
         '+2 HP Drain',
         '+10 TP Boost'],
         comment: "Ninon fan comp core with Saren. Multi targetting isn't that great outside of arena at the moment.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Mifuyu",
@@ -426,7 +426,7 @@ const data =[
         '+115 HP',
         '+127 Physical attack'],
         comment: "Poop.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Saren",
@@ -443,7 +443,7 @@ const data =[
         '+15 TP Regen',
         '+8 HP Drain'],
         comment: "Enables a lot of stuff in PvP and PvE. Charges closest team member for faster UB. Remember to farm her shards starting Day 1.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Anna",
@@ -480,7 +480,7 @@ const data =[
         '+1 Physical Defense',
         '+1 Magic Defense'],
         comment: "Good in story due to self heal, tank swap, speed buff. Can be used in CB to help tank for damage tank early.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Rin",
@@ -594,7 +594,7 @@ const data =[
     {
         name: "Suzuna",
         icon: "https://i.ibb.co/R3czvQk/067-j-ZWl-GNw.png",
-        stars: 3,
+        stars: 2,
         position:705,
         pve:3,
         cb:4,
@@ -625,7 +625,7 @@ const data =[
         '+105 Physical Attack',
         '+5 TP Boost'],
         comment: "Comparable damage to Suzuna in the long run. Going to be top tier CB unit on launch.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Io",
@@ -724,7 +724,7 @@ const data =[
         '+1 HP Drain',
         '+15 HP Recovery Boost'],
         comment: "Some success in PvP if 3+ stars. Otherwise not used.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Aoi",
@@ -742,7 +742,7 @@ const data =[
         '+12 Dodge',
         '+5 TP Boos'],
         comment: "Bad.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Chika",
@@ -797,7 +797,7 @@ const data =[
         '+4 Magic Defense',
         '+15 HP Recovery Boost'],
         comment: "Good AoE heals and buffs at R7+. Used in VH dungeon boss cheese. Easy to farm shards.",
-        source: "hard-shard",
+        source: "hard",
     },
     {
         name: "Yuki",
@@ -816,7 +816,7 @@ const data =[
         '+4 Magic Defense',
         '+15 HP Recovery Boost'],
         comment: "TP charge enabler in PvP. The blind can also come in clutch. Okayish damage for a support.",
-        source: "hard-shard",
+        source: "hard",
     },
 ]
 

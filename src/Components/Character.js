@@ -1,4 +1,3 @@
-import staricon from './3stars.png'
 import {useState} from 'react'
 
 const star1='https://i.ibb.co/QD8P2nm/1star.png'
@@ -37,7 +36,7 @@ function Character(props){
 
     function getIcon(icon){
         switch(icon){
-            case 'hard-shard':
+            case 'hard':
                 return hardIcon
             case 'dungeon':
                 return dungeonIcon
@@ -78,7 +77,7 @@ function Character(props){
     return(
         <div className="character-container">
             <div className="row char-row" onClick={showHiddenTab}>
-                <img className="icon" src={props.info.icon}/>
+                <img className="icon" src={props.info.icon} alt="icon"/>
                 <span className="name char">{props.info.name}</span>
                 {getTier(props.info.pve)}
                 {getTier(props.info.cb)}
@@ -94,7 +93,7 @@ function Character(props){
                     <span className="notes head">Notes</span>
                 </div>
                 <div className="row hidden-row hidden-char">
-                    <img src={getStar(props.info.stars)} className="base-star char"/>
+                    <img src={getStar(props.info.stars)} alt={props.info.stars} className="base-star char"/>
                     <span className="position char">{props.info.position}</span>
                     <span className="cb-rank char">{props.info.cbRank}</span>
                     <span className="rank-dif char" onClick={showRankDiff}>Touch {!diffShown ? (<div className="show-rank-diff">...</div>) : (<div className="show-rank-diff visible">{props.info.rankDiff.map(data=><p>{data}</p>)}</div>)} </span>

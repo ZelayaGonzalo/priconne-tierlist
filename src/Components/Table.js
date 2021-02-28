@@ -355,10 +355,8 @@ function Table(){
               </footer>
             </div>
             <div className="search-icon">
-              <i class="fas fa-search" onClick={showSearch}></i>
-              <label>
-                <input type="text" placeholder="search" value={searchValue} onChange={handleSearch}/>     
-              </label>    
+                <input className="search-txt" type="text" placeholder="search" value={searchValue} onChange={handleSearch}/>
+                <a className="search-btn"><i className="fas fa-search"></i> </a>
             </div>   
             <div className="list-container">
                 {list.filter(data => (data.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) && sourceArray.some(src=>(src === data.source)) && filterPosition(data.position) &&filterStars(data.stars) )).map(char => <Character key={char.name} info={char}/>)} 

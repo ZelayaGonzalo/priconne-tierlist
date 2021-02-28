@@ -15,14 +15,7 @@ $black:#3d3f4e;
     .list-container{
         padding-top: 40px;
     }
-    .fixed{
-        z-index: 100;
-        position: fixed;
-        background-color: $blue;
-        color: $black;
-        -webkit-box-shadow: 0px 3px 5px 3px #3D3F4E; 
-        box-shadow: 0px 3px 5px 3px #3D3F4E;
-    }
+   
     .row{
         width: 100%;
         height: 40px;
@@ -31,7 +24,13 @@ $black:#3d3f4e;
         border-bottom: 1px solid $borderGray;
         .head{
             text-align: center;
-            border-right: 1px solid $borderGray;
+            border-right: 1px solid $borderGold;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            
         }
         .head:last-child{
             border-right: none;
@@ -49,6 +48,15 @@ $black:#3d3f4e;
         .source{
             flex: 1;
         }
+    }
+    .fixed{
+        z-index: 100;
+        position: fixed;
+        background-color: $blue;
+        color: $black;
+        -webkit-box-shadow: 0px 3px 5px 3px #3D3F4E; 
+        box-shadow: 0px 3px 5px 3px #3D3F4E;
+        border-bottom: 2px solid $borderGold;
     }
     .char-row{
         height: auto;
@@ -108,6 +116,7 @@ $black:#3d3f4e;
                 -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7); 
                 box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7);
                 transition: 0.4s;
+                border: 2px solid $borderGold;
             }
             .visible{
                 opacity: 1;
@@ -136,6 +145,7 @@ $black:#3d3f4e;
                 padding: 10px 5px;
                 -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7); 
                 box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7);
+                border: 2px solid $borderGold;
                 transition: 0.4s;
             }
             .visible{
@@ -262,11 +272,11 @@ $black:#3d3f4e;
 }
 //Search bar
 .search-icon{
-    width: 50px;
+    position: fixed;
     height: 50px;
     background-color: $blue;
-    z-index: 150;
-    position: fixed;
+    color: white;
+    z-index: 120;
     bottom: 20px;
     right: 20px;
     border-radius: 25px;
@@ -274,9 +284,35 @@ $black:#3d3f4e;
     align-items: center;
     justify-content: center;
     transition: 0.4s;
-    color: $black;
-    font-size: inherit;
-    i{
+    border: 2px solid $borderGold;
+
+    .search-btn{
+        color: #e84118;
+        float: right;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: $blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+        color: white;
+        cursor: pointer;
+    }
+    .search-txt {
+        border: none;
+        background: none;
+        outline: none;
+        float: left;
+        padding: 0;
+        color: $darkBlue;
+        font-size: inherit;
+        transition: 0.4s;
+        width: 0px;
+        font-weight: bold;
+       }
+    /*i{
         position: absolute;
         height: 50px;
         width: 50px;
@@ -290,24 +326,41 @@ $black:#3d3f4e;
         border: none;
         background: transparent;
         outline: none;
-    }
+    }*/
 }
-.extend{
+
+.search-icon:hover >.search-txt{
+    width: 240px;
+    padding: 0 6px;
+}
+.search-icon:hover{
+    background: white;
+    color: $blue;
+}
+.search-icon:active >.search-txt{
+    width: 240px;
+    padding: 0 6px;
+}
+.search-icon:active{
+    background: white;
+    color: black;
+}
+/*.extend{
     width: 50vw;
-    -webkit-box-shadow: 0px 10px 15px -4px rgba(0,0,0,0.78); 
-    box-shadow: 0px 10px 15px -4px rgba(0,0,0,0.78);
-    border: 1px solid white;
+    max-width: 300px;
     input{
-        color: inherit;
+        color: white;
         font-size: inherit;
-        width: 80%;
+        font-weight: 700;
+        width: 90%;
     }
-}
+}*/
 
 //Filters
 
 .filter-container{
-    background: $blue;
+    color: $black;
+    background: white;
     position: absolute;
     height: auto;
     width: 55vw;
@@ -317,7 +370,7 @@ $black:#3d3f4e;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-top: $borderGray;
+    border: 2px solid $borderGold;
     border-radius: 0 0 20px 20px;
     padding:20px 0;
     transform: translateX(60vw);
@@ -331,10 +384,15 @@ $black:#3d3f4e;
         align-items: flex-start;
         li{
             width: 100%;
-            padding-left: 5%;
             display: flex;
             justify-content: space-between;
             margin-bottom: 5px;
+            div{
+                background-color: $blue;
+                color: white;
+                border-radius: 5px;
+                padding: 0 5px;
+            }
             .input-container{
                 display: block;
                 position: relative;
@@ -359,12 +417,14 @@ $black:#3d3f4e;
                     width: 25px;
                     background-color: white;
                     border-radius: 50%;
+                    border: 1px solid $blue;
                 }
                 input:checked ~ .mark{
                     background-image: url("./stamp.png");
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;
+                    border: none;
                 }
             }
             
@@ -377,14 +437,21 @@ $black:#3d3f4e;
         
     }
     .btn{
-        background-color: white;
-        color: $black;
+        background: rgb(95,150,243);
+        background: linear-gradient(180deg, rgba(95,150,243,1) 0%, rgba(199,218,251,1) 5%, rgba(95,150,243,1) 25%, rgba(95,150,243,1) 100%);
+        color: white;
         padding: 10px;
         margin: 5px 0;
-        border: 2px solid $borderGray;
+        border: 2px solid $borderGold;
+        border-radius: 10px;
         font-weight: 700;
         -webkit-box-shadow: 0px 10px 15px -4px rgba(0,0,0,0.78); 
         box-shadow: 0px 10px 15px -4px rgba(0,0,0,0.78);
+    }
+    .unselect-all{
+        background: rgb(255,255,255);
+        background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(179,179,179,1) 5%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);
+        color: $black;
     }
     .filter-close{
         width: 80%;

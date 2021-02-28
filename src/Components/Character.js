@@ -1,4 +1,9 @@
 import {useState} from 'react'
+import {
+    BrowserView,
+    MobileView,
+    isMobile
+  } from "react-device-detect";
 
 const star1='https://i.ibb.co/QD8P2nm/1star.png'
 const star2='https://i.ibb.co/MPdkP4N/2stars.png'
@@ -18,19 +23,19 @@ function Character(props){
     function getTier(tier){
         switch(tier){
             case 0:
-                return <span className="tier char c">C</span>
+                return isMobile ? <span className="tier char c">C</span> : <span className="tier char char-desktop c">C</span>
             case 1:
-                return <span className="tier char b">B</span>
+                return isMobile ? <span className="tier char b">B</span> : <span className="tier char char-desktop b">B</span>
             case 2:
-                return <span className="tier char a">A</span>
+                return isMobile ? <span className="tier char a">A</span>: <span className="tier char char-desktop a">A</span>
             case 3:
-                return <span className="tier char s">S</span>
+                return isMobile ? <span className="tier char s">S</span> : <span className="tier char char-desktop s">S</span>
             case 4:
-                return <span className="tier char ss">SS</span>
+                return isMobile ? <span className="tier char ss">SS</span> : <span className="tier char char-desktop ss">SS</span>
             case 5:
-                return <span className="tier char sss">SSS</span>
+                return isMobile ? <span className="tier char sss">SSS</span> : <span className="tier char char-desktop sss">SSS</span>
             default:
-                return <span className="tier char">-</span>
+                return isMobile ? <span className="tier char">-</span> : <span className="tier char char-desktop ">-</span>
         }
     }
 
@@ -73,9 +78,12 @@ function Character(props){
     function showRankDiff(){
         setDiffShown(!diffShown)
     }
+    
 
-    return(
-        <div className="character-container">
+    function renderCharacter(){
+        if(isMobile){
+            return(
+            <MobileView viewclassName="character-container">
             <div className="row char-row" onClick={showHiddenTab}>
                 <img className="icon" src={props.info.icon} alt="icon"/>
                 <span className="name char">{props.info.name}</span>
@@ -96,11 +104,32 @@ function Character(props){
                     <img src={getStar(props.info.stars)} alt={props.info.stars} className="base-star char"/>
                     <span className="position char">{props.info.position}</span>
                     <span className="cb-rank char">{props.info.cbRank}</span>
-                    <span className="rank-dif char" onClick={showRankDiff}>Touch {!diffShown ? (<div className="show-rank-diff">...</div>) : (<div className="show-rank-diff visible">{props.info.rankDiff.map(data=><p>{data}</p>)}</div>)} </span>
+                    <span className="rank-dif char" onClick={showRankDiff}>Touch {!diffShown ? (<div className="show-rank-diff">...</div>) : (<div className="show-rank-diff visible">{props.info.rankDiff.map(data=><p className={data.includes("+") ? "positive":"negative"}>{data}</p>)}</div>)} </span>
                     <span className="notes char" onClick={showNotes}>Touch{!notesShown ? (<div className="show-notes">{props.info.comment}</div>) : (<div className="show-notes visible">{props.info.comment}</div>) }</span>
                 </div>
             </div>
-        </div>
+        </MobileView>
+        )
+        }
+        return(
+            <BrowserView>
+                <div className="row char-row char-row-desktop row-desktop">
+                    <img className="icon" src={props.info.icon} alt="icon"/>
+                    <img src={getStar(props.info.stars)} alt={props.info.stars} className="base-star char char-desktop"/>
+                    <span className="name char char-desktop">{props.info.name}</span>
+                    {getTier(props.info.pve)}
+                    {getTier(props.info.cb)}
+                    {getTier(props.info.pvp)}
+                    <span className="cbRank char char-desktop">{props.info.cbRank} <div className="show-rank-diff visible">{props.info.rankDiff.map(data=> <p className={data.includes("+") ? "positive":"negative"}>{data}</p>)}</div></span>
+                    <span className="comment char char-desktop"><p>{props.info.comment}</p></span>
+                    <span className="source char char-desktop"> <img src={getIcon(props.info.source)} alt="-" className="src-img"/></span>
+                </div>
+            </BrowserView>
+        )
+    }
+
+    return(
+        renderCharacter()
     )
 }
 

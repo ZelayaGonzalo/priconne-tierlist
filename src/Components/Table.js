@@ -2,11 +2,18 @@ import './style.css'
 import Character from './Character'
 import data from '../data.js'
 import {useState,useEffect} from 'react'
+import Info from './Info'
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+} from "react-device-detect";
 
 
 function Table(){
     const [list,setList] = useState(data)
     const [ascending,setAscending] =useState(false)
+    const [ascendingStars,setAscendingStars]=useState(false)
     const [searchValue,setSearchValue] = useState("")
     
     const [sourceArray,setSourceArray]= useState(['dungeon','arena','princess','clan','hard'])
@@ -91,10 +98,10 @@ function Table(){
       const target = event.currentTarget.parentNode.nextSibling
       target.classList.toggle("sidebar-show")
     }
-    function showSearch(event){
+    /*function showSearch(event){
       const target=event.target.parentNode
       target.classList.toggle("extend")
-    }
+    }*/
     function showFilter(event){
       if(event.target.id === 'source'){
         const target = event.target.firstChild.nextSibling
@@ -137,6 +144,7 @@ function Table(){
     }
 
     function sortByName(){
+        setAscendingStars(false)
         if(ascending){
             setList(prev=> { return [...prev].sort(function (a, b) {
                 if (a.name < b.name) {
@@ -163,8 +171,9 @@ function Table(){
         }
         setAscending(!ascending)
       }
-      function sortPvp(){
+    function sortPvp(){
         setAscending(false)
+        setAscendingStars(false)
         setList(prev => {return [...prev].sort(function (a, b) {
           if (a.pvp < b.pvp) {
             return 1;
@@ -176,8 +185,9 @@ function Table(){
           })
         })
       }
-      function sortPve(){
+    function sortPve(){
         setAscending(false)
+        setAscendingStars(false)
         setList(prev => {return [...prev].sort(function (a, b) {
           if (a.pve < b.pve) {
             return 1;
@@ -189,8 +199,9 @@ function Table(){
           })
         })
       }
-      function sortCb(){
+    function sortCb(){
         setAscending(false)
+        setAscendingStars(false)
         setList(prev => {return [...prev].sort(function (a, b) {
           if (a.cb < b.cb) {
             return 1;
@@ -202,8 +213,50 @@ function Table(){
           })
         })
       }
+    function sortCbRank(){
+      setAscending(false)
+      setAscendingStars(false)
+        setList(prev => {return [...prev].sort(function (a, b) {
+          if (a.cbRank < b.cbRank) {
+            return -1;
+          }
+          if (a.cbRank > b.cbRank) {
+            return 1;
+          }
+          return 0;
+          })
+        })
+    }
+    function sortStars(){
+      setAscending(false)
+      if(ascendingStars){
+        setList(prev=> { return [...prev].sort(function (a, b) {
+            if (a.stars < b.stars) {
+              return 1;
+            }
+            if (a.stars > b.stars) {
+              return -1;
+            }
+            return 0;
+          }) 
+    })
+    }
+    else{
+        setList(prev=> { return [...prev].sort(function (a, b) {
+            if (a.stars > b.stars) {
+              return 1;
+            }
+            if (a.stars < b.stars) {
+              return -1;
+            }
+            return 0;
+          }) 
+    })
+    }
+    setAscendingStars(!ascendingStars)
+  }
 
-      function filterPosition(value){
+    function filterPosition(value){
         if(front && value <250){
           return true
         }
@@ -215,7 +268,7 @@ function Table(){
         }
         return false
       }
-      function filterStars(stars){
+    function filterStars(stars){
         if(star1 && stars === 1) return true
         if(star2 && stars === 2) return true
         if(star3 && stars === 3) return true
@@ -223,14 +276,14 @@ function Table(){
       }
 
     return(
-        <div className="table-container">
-            <div className="row head fixed">
-                <span className="icon head" onClick={showSideBar}><i class="fas fa-info-circle"></i></span>
-                <span className="name head" onClick={sortByName}>Name {ascending ?<i class="fas fa-arrow-up" ></i> :<i class="fas fa-arrow-up rotate" ></i>  }</span>
-                <span className="tier head" onClick={sortPve}>PVE</span>
-                <span className="tier head" onClick={sortCb}>CB</span>
-                <span className="tier head" onClick={sortPvp}>PVP</span>
-                <span className="source head" id="source" onClick={showFilter}>Source
+        <div className={isBrowser ? "table-container table-desktop":"table-container"}>
+            <MobileView viewClassName="row head fixed">
+                <span className="icon head action" onClick={showSideBar}><i class="fas fa-info-circle"></i></span>
+                <span className="name head action" onClick={sortByName}>Name {ascending ?<i class="fas fa-arrow-up" ></i> :<i class="fas fa-arrow-up rotate" ></i>  }</span>
+                <span className="tier head action" onClick={sortPve}>PVE</span>
+                <span className="tier head action" onClick={sortCb}>CB</span>
+                <span className="tier head action" onClick={sortPvp}>PVP</span>
+                <span className="source head action" id="source" onClick={showFilter}>Source
                   <div className="filter-container" id="filter-container">
                     <h2>Filters</h2>
                     <h4>Source:</h4>
@@ -323,40 +376,114 @@ function Table(){
                     <button className="btn filter-close" onClick={buttonCloseFilter}>Close</button>
                   </div>
                 </span>
-            </div>
-            <div className="side-bar">
-              <section>
-              <h2>Princess Connect Tierlist</h2>
-              <p>Hello and welcome to this tierlist.</p>
-              <p>This list was made by TimaeuSS and you can find the original <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlbwfpi-KflPB6aA-LE1a50xiLvWsNRU1vcusLIWwnPLzgE2iXw9Or8JXQdezN-s1rakU074hFK1Nh/pubhtml#">here</a></p>
-              <p>This app was made with mobile in mind, so it may look a bit clunky on desktop.</p>
-              </section>
-              <section className="credits-section">
-                <h3>Instructions:</h3>
-                <h4>Second tab:</h4>
-                <p>Touch on any place on a tab of a character to show the hidden tab with some extra info</p>
-                <h4>Sorting:</h4>
-                <p>Touch any of the sections on the top to sort the list. You can sort by Name(press twice to sort from Z to A), PVP rank, PVE rank and CB Rank</p>
-                <h4>Filters:</h4>
-                <p>Touch the source tab on the top to open the filters window. You can apply as many filters as you want at the same time</p>
-                <h3>References:</h3>
-                <h4>Position:</h4>
-                <p>The lowest the number the more foward it'll go</p>
-                <h4>CB Rank:</h4>
-                <p>The current rank suggested for better performance on Clan Battles. (7-6 is rank 7 with full equips)</p>
-                <h4>rank Diff:</h4>
-                <p>the differences in stats between rank 7-6 and 8-3 (at 3 stars)</p>
-                <h4 className="enjoy"> Enjoy :)</h4>
-              </section>
-              <footer>
-                  <p>if you have any troubles feel free to contact me:</p>
-                  <p>Email: <a href="zelayagonzalo33@gmail.com">zelayagonzalo33@gmail.com</a></p>
-                  <p>Discord: 0PT1C0#3072</p>
-              </footer>
-            </div>
+            </MobileView>
+            <BrowserView viewClassName="row head fixed row-desktop fixed-desktop">
+                <span className="icon head action" onClick={showSideBar}><i class="fas fa-info-circle"></i></span>
+                <span className="stars head action" onClick={sortStars}>Stars {ascendingStars ?<i class="fas fa-arrow-up" ></i> :<i class="fas fa-arrow-up rotate" ></i>  } </span>
+                <span className="name head action" onClick={sortByName}>Name {ascending ?<i class="fas fa-arrow-up" ></i> :<i class="fas fa-arrow-up rotate" ></i>  }</span>
+                <span className="tier head action" onClick={sortPve}>PVE</span>
+                <span className="tier head action" onClick={sortCb}>CB</span>
+                <span className="tier head action" onClick={sortPvp}>PVP</span>
+                <span className="cbRank head action" onClick={sortCbRank}>CB Rank</span>
+                <span className="comment head">Comment</span>
+                <span className="source head action" id="source" onClick={showFilter}>Source
+                <div className="filter-container" id="filter-container">
+                    <h2>Filters</h2>
+                    <h4>Source:</h4>
+                    <ul className="source-filter">
+                      <li>
+                        <div>Dungeon</div>
+                        <label className="input-container">
+                        <input type="checkbox" checked={filterSource.dungeon} id="dungeon" onChange={handleSource}/>
+                        <span className="mark"></span>
+                        </label>
+                      </li>
+                      <li>  
+                        <div>Hard Shards</div>
+                        <label className="input-container">
+                        <input type="checkbox" id="hard" checked={filterSource.hard} onChange={handleSource}/>
+                        <span className="mark"></span>
+                        </label>
+                      </li>
+                      <li>
+                        <div> Arena</div>
+                        <label className="input-container">
+                        <input type="checkbox" id="arena" checked={filterSource.arena} onChange={handleSource}/>
+                        <span className="mark"></span>
+                        </label>
+                      </li>
+                      <li>
+                        <div> Princess Arena</div>
+                        <label className="input-container">
+                        <input type="checkbox" id="princess" checked={filterSource.princess} onChange={handleSource}/>
+                        <span className="mark"></span>
+                        </label>
+                      </li>
+                      <li>
+                        <div> Clan Battle</div>
+                        <label className="input-container">
+                        <input type="checkbox" id="clan" checked={filterSource.clan} onChange={handleSource}/>
+                        <span className="mark"></span>
+                        </label>
+                      </li>
+                    </ul>
+                    <h4>Position:</h4>
+                    <ul className="source-filter">
+                      <li>
+                        <div>Front {'(<250)'}</div>
+                        <label className="input-container">
+                          <input type="checkbox" id="front" checked={front} onChange={handlePosition}/>
+                          <span className="mark"></span>
+                        </label>
+                      </li>
+                      <li>
+                        <div>Middle {'(<600)'}</div>
+                        <label className="input-container">
+                            <input type="checkbox" id="mid" checked={mid} onChange={handlePosition}/>
+                            <span className="mark"></span>
+                        </label>
+                      </li>
+                      <li>
+                        <div> Back {'(>600)'}</div>
+                        <label className="input-container">
+                        <input type="checkbox" id="back" checked={back} onChange={handlePosition}/>
+                        <span className="mark"></span>
+                        </label>
+                      </li>
+                    </ul>
+                    <h4>Base Stars:</h4>
+                    <ul className="source-filter">
+                      <li>
+                        <div>1 Star</div>
+                        <label className="input-container">
+                          <input type="checkbox" id="star1" checked={star1} onChange={handleStar} />
+                          <span className="mark"></span>
+                        </label>
+                      </li>
+                      <li>
+                        <div>2 Stars</div>
+                        <label className="input-container">
+                        <input type="checkbox" id="star2" checked={star2} onChange={handleStar}/>
+                        <span className="mark"></span>
+                        </label>
+                      </li>
+                      <li>
+                        <div>3 Stars</div>
+                        <label className="input-container">
+                          <input type="checkbox" id="star3"  checked={star3} onChange={handleStar}/>
+                          <span className="mark"></span>
+                        </label>
+                      </li>
+                    </ul>
+                    <div className="button-container"><button className="btn select-all" onClick={selectAll}>Select all</button><button className="btn unselect-all" onClick={eraseAll}>Erase all</button></div>
+                    <button className="btn filter-close" onClick={buttonCloseFilter}>Close</button>
+                  </div>
+                </span>
+            </BrowserView>
+            <Info/>
             <div className="search-icon">
                 <input className="search-txt" type="text" placeholder="search" value={searchValue} onChange={handleSearch}/>
-                <a className="search-btn"><i className="fas fa-search"></i> </a>
+                <span className="search-btn"><i className="fas fa-search"></i> </span>
             </div>   
             <div className="list-container">
                 {list.filter(data => (data.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) && sourceArray.some(src=>(src === data.source)) && filterPosition(data.position) &&filterStars(data.stars) )).map(char => <Character key={char.name} info={char}/>)} 

@@ -7,6 +7,8 @@ $darkBlue:#1e5483;
 $softBlue:#6471a2;
 $black:#3d3f4e;
 
+$positiveStat:#ff840d;
+$negativeStat:#e24352;
 
 .table-container{
     width: 100%;
@@ -15,7 +17,9 @@ $black:#3d3f4e;
     .list-container{
         padding-top: 40px;
     }
-   
+    .list-container-desktop{
+        padding-top: 40px;
+    }
     .row{
         width: 100%;
         height: 40px;
@@ -29,8 +33,12 @@ $black:#3d3f4e;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            
+            color: white;            
+        }
+        .action:hover{
+            background-color: white;
+            color: $darkBlue;
+            cursor: pointer;
         }
         .head:last-child{
             border-right: none;
@@ -49,14 +57,59 @@ $black:#3d3f4e;
             flex: 1;
         }
     }
+    .row-desktop{
+        min-width: 800px;
+        .icon{
+            width: 100px;
+        }
+        .stars{
+            width: 70px;
+        }
+        .name{
+            width: 12%;
+        }
+        .tier{
+            width: 5%;
+        }
+        .cbRank{
+            width: 7%;
+            position: relative;
+        }
+        .cbRank:hover .show-rank-diff{
+            opacity: 1;
+            font-size: inherit;
+            width: 300px;
+        }
+        .comment{
+            flex: 1;
+        }
+        .source{
+            width: 100px;
+            flex: none;
+        }
+        .comment{
+            text-align: left;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            p{
+                width: 100%;
+                font-size: 15px;
+            }
+        }
+    }
     .fixed{
         z-index: 100;
         position: fixed;
         background-color: $blue;
+        top: 0;
         color: $black;
         -webkit-box-shadow: 0px 3px 5px 3px #3D3F4E; 
         box-shadow: 0px 3px 5px 3px #3D3F4E;
         border-bottom: 2px solid $borderGold;
+    }
+    .fixed-desktop{
+        position: fixed;
     }
     .char-row{
         height: auto;
@@ -64,6 +117,17 @@ $black:#3d3f4e;
             height: auto;
             width: 70px;
             max-width: 100px;
+        }
+    }
+    .char-row-desktop{
+        .icon{
+            width: 100px;
+            height: auto;
+        }
+        .base-star{
+            width: 70px;
+            height: auto;
+            max-height: 100px;
         }
     }
     .char{
@@ -78,6 +142,14 @@ $black:#3d3f4e;
             width: 100%;
             max-height: 70px;
             max-width: 120px;
+        }
+    }
+    .char-desktop{
+        height: 100px;
+        .src-img{
+            width: 100%;
+            max-height: 70px;
+            max-width: 100px;
         }
     }
     .char:first-child{
@@ -165,6 +237,13 @@ $black:#3d3f4e;
     }
 }
 
+.table-desktop{
+    width: 100%;
+    height: auto;
+    min-width: 800px;
+    overflow-y: auto;
+}
+
 .hidden{
     transition: 0.5s;
     opacity: 0;
@@ -196,6 +275,26 @@ $black:#3d3f4e;
         }
     }
     
+}
+.show-rank-diff{
+    opacity: 0;
+    font-size: 0;
+    width: 0;
+    position: absolute;
+    right: 100%;
+    background-color: white;
+    width: 300px;
+    max-width: 50vw;
+    height: auto;
+    overflow-wrap: break-word;
+    padding: 10px 5px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7); 
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7);
+    transition: 0.4s;
+    border: 2px solid $borderGold;
+    top: 5%;
+    z-index: 10;
 }
 .fa-arrow-up{
     transition: 0.5s;
@@ -230,7 +329,7 @@ $black:#3d3f4e;
     margin-top: 40px;
     width: 100vw;
     height: 100%;
-    background-color: $blue;
+    background-color: white;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -242,11 +341,20 @@ $black:#3d3f4e;
         max-width: 500px;
     }
     h2{
+        color: white;
         text-align: center;
+        background-color: $blue;
+        padding:0 20px;
+        border-radius: 10px;
     }
     h3{
+        color: white;
         text-align: center;
+        background-color: $blue;
+        padding:0 20px;
+        border-radius: 10px;
     }
+
     footer{
         margin-top: 20px;
         width: 100%;
@@ -331,19 +439,11 @@ $black:#3d3f4e;
 
 .search-icon:hover >.search-txt{
     width: 240px;
-    padding: 0 6px;
+    padding: 0 20px;
 }
 .search-icon:hover{
     background: white;
     color: $blue;
-}
-.search-icon:active >.search-txt{
-    width: 240px;
-    padding: 0 6px;
-}
-.search-icon:active{
-    background: white;
-    color: black;
 }
 /*.extend{
     width: 50vw;
@@ -361,12 +461,12 @@ $black:#3d3f4e;
 .filter-container{
     color: $black;
     background: white;
-    position: absolute;
+    position: fixed;
     height: auto;
     width: 55vw;
     max-width: 300px;
     right: 0;
-    top: 100%;
+    top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -377,6 +477,7 @@ $black:#3d3f4e;
     transition: 0.4s;
     -webkit-box-shadow: -5px 13px 15px -1px rgba(0,0,0,0.9); 
     box-shadow: -5px 13px 15px -1px rgba(0,0,0,0.9);
+    cursor: default;
     .source-filter{
         width: 90%;
         display: flex;
@@ -447,12 +548,16 @@ $black:#3d3f4e;
         font-weight: 700;
         -webkit-box-shadow: 0px 10px 15px -4px rgba(0,0,0,0.78); 
         box-shadow: 0px 10px 15px -4px rgba(0,0,0,0.78);
+        cursor: pointer;
+        transition: 0.5s;
     }
-    .unselect-all{
-        background: rgb(255,255,255);
-        background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(179,179,179,1) 5%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);
+
+    .btn:hover{
         color: $black;
+        background: white;
+        background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(179,179,179,1) 5%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);
     }
+
     .filter-close{
         width: 80%;
     }
@@ -463,8 +568,6 @@ $black:#3d3f4e;
 .enjoy{
     text-align: center;
 }
-
-
 //checkbox customization
 
 input[type=checkbox]{
@@ -475,4 +578,10 @@ input[type=checkbox]{
 
 .fa-info-circle{
     font-size: 25px;
+}
+.positive{
+    color:$positiveStat;
+}
+.negative{
+    color: $blue;
 }

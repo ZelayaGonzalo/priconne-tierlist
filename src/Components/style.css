@@ -2,12 +2,16 @@
   width: 100%;
   height: 100%;
   user-select: none;
+  overflow: hidden;
 }
 .table-container .list-container {
   padding-top: 40px;
+  padding-bottom: 70px;
+  overflow: hidden;
 }
 .table-container .list-container-desktop {
   padding-top: 40px;
+  padding-bottom: 0;
 }
 .table-container .row {
   width: 100%;
@@ -56,7 +60,10 @@
   width: 70px;
 }
 .table-container .row-desktop .name {
-  width: 12%;
+  width: 10%;
+}
+.table-container .row-desktop .position {
+  width: 90px;
 }
 .table-container .row-desktop .tier {
   width: 5%;

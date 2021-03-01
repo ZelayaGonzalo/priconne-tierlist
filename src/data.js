@@ -3,7 +3,7 @@ const data =[
     name: "Miyako",
     icon: "https://i.ibb.co/r3D55yD/FNI9UAh.png",
     stars: 2,
-    position:165,
+    position:125,
     pve:3,
     cb:2,
     pvp:3,
@@ -468,7 +468,7 @@ const data =[
     {
         name: "Kokkoro",
         icon: "https://i.ibb.co/rw6WJL0/180-Zc-YCr2h.png",
-        stars: 3,
+        stars: 1,
         position:500,
         pve:2,
         cb:3,
@@ -497,7 +497,7 @@ const data =[
         '+1 Physical Defense',
         '+1 Magic Defense'],
         comment: "Will be used in stall comps in PvP later.",
-        source: "-",
+        source: "none",
     },
     {
         name: "Mitsuki",
@@ -570,7 +570,7 @@ const data =[
         '+105 Physical Attack',
         '+5 TP Boost'],
         comment: "One of the better bow users on release. Upgrade to Suzuna / Shiori for the first few CBs. Also mainly cuz you can use the other 2 bow users on another team. Decent in arena too.",
-        source: "-",
+        source: "none",
     },
     {
         name: "Rino",
@@ -664,7 +664,7 @@ const data =[
         '+5 Magic Defense',
         '+30 HP Recovery Boost'],
         comment: "Poop again.",
-        source: "-",
+        source: "clan",
     },
     {
         name: "Karyl",

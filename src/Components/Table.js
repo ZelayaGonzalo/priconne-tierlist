@@ -15,8 +15,9 @@ function Table(){
     const [ascending,setAscending] =useState(false)
     const [ascendingStars,setAscendingStars]=useState(false)
     const [searchValue,setSearchValue] = useState("")
+    const [ascendingPosition,setAscendingPosition] = useState(false)
     
-    const [sourceArray,setSourceArray]= useState(['dungeon','arena','princess','clan','hard'])
+    const [sourceArray,setSourceArray]= useState(['dungeon','arena','princess','clan','hard','none'])
     const [filterSource,setFilterSource]=useState({dungeon:true,arena:true,princess:true,clan:true,hard:true})
     
     const [front,setFront] = useState(true)
@@ -98,10 +99,6 @@ function Table(){
       const target = event.currentTarget.parentNode.nextSibling
       target.classList.toggle("sidebar-show")
     }
-    /*function showSearch(event){
-      const target=event.target.parentNode
-      target.classList.toggle("extend")
-    }*/
     function showFilter(event){
       if(event.target.id === 'source'){
         const target = event.target.firstChild.nextSibling
@@ -145,6 +142,7 @@ function Table(){
 
     function sortByName(){
         setAscendingStars(false)
+        setAscendingPosition(false)
         if(ascending){
             setList(prev=> { return [...prev].sort(function (a, b) {
                 if (a.name < b.name) {
@@ -174,6 +172,7 @@ function Table(){
     function sortPvp(){
         setAscending(false)
         setAscendingStars(false)
+        setAscendingPosition(false)
         setList(prev => {return [...prev].sort(function (a, b) {
           if (a.pvp < b.pvp) {
             return 1;
@@ -188,6 +187,7 @@ function Table(){
     function sortPve(){
         setAscending(false)
         setAscendingStars(false)
+        setAscendingPosition(false)
         setList(prev => {return [...prev].sort(function (a, b) {
           if (a.pve < b.pve) {
             return 1;
@@ -202,6 +202,7 @@ function Table(){
     function sortCb(){
         setAscending(false)
         setAscendingStars(false)
+        setAscendingPosition(false)
         setList(prev => {return [...prev].sort(function (a, b) {
           if (a.cb < b.cb) {
             return 1;
@@ -216,6 +217,7 @@ function Table(){
     function sortCbRank(){
       setAscending(false)
       setAscendingStars(false)
+      setAscendingPosition(false)
         setList(prev => {return [...prev].sort(function (a, b) {
           if (a.cbRank < b.cbRank) {
             return -1;
@@ -229,6 +231,7 @@ function Table(){
     }
     function sortStars(){
       setAscending(false)
+      setAscendingPosition(false)
       if(ascendingStars){
         setList(prev=> { return [...prev].sort(function (a, b) {
             if (a.stars < b.stars) {
@@ -254,8 +257,36 @@ function Table(){
     })
     }
     setAscendingStars(!ascendingStars)
-  }
-
+    }
+    function sortPosition(){
+      setAscending(false)
+      setAscendingStars(false)
+      if(ascendingPosition){
+        setList(prev=> { return [...prev].sort(function (a, b) {
+            if (a.position < b.position) {
+              return 1;
+            }
+            if (a.position > b.position) {
+              return -1;
+            }
+            return 0;
+          }) 
+    })
+    }
+    else{
+        setList(prev=> { return [...prev].sort(function (a, b) {
+            if (a.position > b.position) {
+              return 1;
+            }
+            if (a.position < b.position) {
+              return -1;
+            }
+            return 0;
+          }) 
+    })
+    }
+    setAscendingPosition(!ascendingPosition)
+    }
     function filterPosition(value){
         if(front && value <250){
           return true
@@ -380,6 +411,7 @@ function Table(){
             <BrowserView viewClassName="row head fixed row-desktop fixed-desktop">
                 <span className="icon head action" onClick={showSideBar}><i className="fas fa-info-circle"></i></span>
                 <span className="stars head action" onClick={sortStars}>Stars {ascendingStars ?<i className="fas fa-arrow-up" ></i> :<i className="fas fa-arrow-up rotate" ></i>  } </span>
+                <span className="position head action" onClick={sortPosition}>Position {ascendingPosition ?<i className="fas fa-arrow-up" ></i> :<i className="fas fa-arrow-up rotate" ></i>  }</span>
                 <span className="name head action" onClick={sortByName}>Name {ascending ?<i className="fas fa-arrow-up" ></i> :<i className="fas fa-arrow-up rotate" ></i>  }</span>
                 <span className="tier head action" onClick={sortPve}>PVE</span>
                 <span className="tier head action" onClick={sortCb}>CB</span>

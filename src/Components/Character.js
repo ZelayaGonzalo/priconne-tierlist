@@ -116,6 +116,7 @@ function Character(props){
                 <div className="row char-row char-row-desktop row-desktop">
                     <img className="icon" src={props.info.icon} alt="icon"/>
                     <img src={getStar(props.info.stars)} alt={props.info.stars} className="base-star char char-desktop"/>
+                    <span className="position char char-desktop">{props.info.position}</span>
                     <span className="name char char-desktop">{props.info.name}</span>
                     {getTier(props.info.pve)}
                     {getTier(props.info.cb)}

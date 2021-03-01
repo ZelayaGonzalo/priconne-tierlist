@@ -14,11 +14,15 @@ $negativeStat:#e24352;
     width: 100%;
     height: 100%;
     user-select: none;
+    overflow: hidden;
     .list-container{
         padding-top: 40px;
+        padding-bottom: 70px;
+        overflow: hidden;
     }
     .list-container-desktop{
         padding-top: 40px;
+        padding-bottom: 0;
     }
     .row{
         width: 100%;
@@ -66,7 +70,10 @@ $negativeStat:#e24352;
             width: 70px;
         }
         .name{
-            width: 12%;
+            width: 10%;
+        }
+        .position{
+            width: 90px;
         }
         .tier{
             width: 5%;

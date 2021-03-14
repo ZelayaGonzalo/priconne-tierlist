@@ -14,6 +14,7 @@ const dungeonIcon = 'https://i.ibb.co/GMrgJY0/dungeon-icon.png'
 const arenaIcon = 'https://i.ibb.co/ChwG0gR/battle-arena.png'
 const princessAIcon = 'https://i.ibb.co/d6Rm29k/princess-arena-icon.png'
 const hardIcon = 'https://i.ibb.co/hd6T7fq/hard-mode-icon.png'
+const none = 'https://i.ibb.co/1q42BLB/white.jpg'
 
 function Character(props){
 
@@ -52,7 +53,7 @@ function Character(props){
             case 'clan':
                 return cbIcon
             default:
-                return
+                return none
         }
     }
     function getStar(stars){
